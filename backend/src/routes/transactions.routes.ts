@@ -17,3 +17,7 @@ transactionsRoutes.post('/',
     }),
     controller.create
 )
+
+transactionsRoutes.get('/',
+    controller.index
+)
