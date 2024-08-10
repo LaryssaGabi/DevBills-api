@@ -22,16 +22,25 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
 const express_1 = __importStar(require("express"));
-const routes_1 = require("./src/routes");
+const routes_1 = require("./routes");
 const database_1 = require("./database");
+const error_handler_middleware_1 = require("./middlewares/error-handler.middleware");
+const cors_1 = __importDefault(require("cors"));
 (0, database_1.setupMongo)().then(() => {
     const app = (0, express_1.default)();
     const port = 3333;
+    app.use((0, cors_1.default)({
+        origin: process.env.FRONT_URL,
+    }));
     app.use((0, express_1.json)());
     app.use(routes_1.routes);
+    app.use(error_handler_middleware_1.errorHandle);
     app.listen(port, () => {
         console.log(`🚀 App is running at port ${port}!`);
     });
