@@ -15,7 +15,7 @@ export default createGlobalStyle`
     }
 
     body, input, button, select{
-        font:1 rem 'Lexend', sans-serif;
+        font:1rem 'Lexend', sans-serif;
     }
 
     h1, h2, p, span, strong, button, label, input{

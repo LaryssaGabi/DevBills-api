@@ -1,10 +1,11 @@
-import { Filters, Header, InputGroup, Main, Section } from "./home-styles";
+import { Balance, Filters, Header, InputGroup, Main, Section } from "./home-styles";
 import { Logo } from '../../components/logo/index'
 import { Button } from "../../components/button";
 import { Title } from "../../components/title";
 import { Input } from "../../components/input";
 import { InputMask } from "@react-input/mask";
 import { ButtonIcon } from "../../components/button-icon";
+import { Card } from "../../components/card";
 
 export function Home() {
     return (
@@ -26,20 +27,26 @@ export function Home() {
                                 mask="dd/mm/yyyy"
                                 replacement={{ d: /\d/, m: /\d/, y: /\d/ }}
                                 variant="dark"
-                                label="Início" 
-                                placeholder="dd/mm/yyyy"                               
+                                label="Início"
+                                placeholder="dd/mm/yyyy"
                             />
                             <InputMask
                                 component={Input}
                                 mask="dd/mm/yyyy"
                                 replacement={{ d: /\d/, m: /\d/, y: /\d/ }}
                                 variant="dark"
-                                label="Fim"   
-                                placeholder="dd/mm/yyyy"                             
+                                label="Fim"
+                                placeholder="dd/mm/yyyy"
                             />
-                            <ButtonIcon/>
+                            <ButtonIcon />
                         </InputGroup>
                     </Filters>
+                    
+                    <Balance>
+                        <Card title="Saldo" amount={1000000}/>
+                        <Card title="Saldo" amount={1000000} variant="incomes"/>
+                        <Card title="Saldo" amount={1000000} variant="expenses"/>
+                    </Balance>
                 </Section>
             </Main>
         </>
