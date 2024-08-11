@@ -1,4 +1,4 @@
-import { Balance, ChartAction, ChartContainer, ChartContent, Filters, Header, InputGroup, Main, Section } from "./home-styles";
+import { Aside, Balance, ChartAction, ChartContainer, ChartContent, Filters, Header, InputGroup, Main, SearchTransaction, Section } from "./home-styles";
 import { Logo } from '../../components/logo/index'
 import { Button } from "../../components/button";
 import { Title } from "../../components/title";
@@ -6,6 +6,7 @@ import { Input } from "../../components/input";
 import { InputMask } from "@react-input/mask";
 import { ButtonIcon } from "../../components/button-icon";
 import { Card } from "../../components/card";
+import { Transaction } from "../../components/transaction";
 
 export function Home() {
     return (
@@ -17,6 +18,7 @@ export function Home() {
                     <Button>Nova categoria</Button>
                 </div>
             </Header>
+
             <Main>
                 <Section>
                     <Filters>
@@ -52,9 +54,7 @@ export function Home() {
                         <header>
                             <Title title="Gastos" subtitle="Despesas por categoria no período" />
                         </header>
-                        <ChartContent>
-
-                        </ChartContent>
+                        <ChartContent></ChartContent>
                     </ChartContainer>
 
                     <ChartContainer>
@@ -78,6 +78,21 @@ export function Home() {
                     </ChartContainer>
 
                 </Section>
+
+                <Aside>
+                    <header>
+                        <Title title="Transações" subtitle="Receitas e Gastos no período" />
+                        <SearchTransaction>
+                            <Input
+                                variant="black"
+                                placeholder="Procurar transações..."
+                            />
+                            <ButtonIcon />
+                        </SearchTransaction>
+                        <Transaction id={1} amount={20000} date="10/08/2024" category={{ title: 'Alimentação', color: '#ff33bb' }} title="Mercado"/>
+                    </header>
+                </Aside>
+
             </Main>
         </>
     )
