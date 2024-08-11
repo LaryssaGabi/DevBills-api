@@ -4,6 +4,7 @@ import { Button } from "../../components/button";
 import { Title } from "../../components/title";
 import { Input } from "../../components/input";
 import { InputMask } from "@react-input/mask";
+import { ButtonIcon } from "../../components/button-icon";
 
 export function Home() {
     return (
@@ -36,6 +37,7 @@ export function Home() {
                                 label="Fim"   
                                 placeholder="dd/mm/yyyy"                             
                             />
+                            <ButtonIcon/>
                         </InputGroup>
                     </Filters>
                 </Section>
