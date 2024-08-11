@@ -1,6 +1,5 @@
 import { Aside, Balance, ChartAction, ChartContainer, ChartContent, Filters, Header, InputGroup, Main, SearchTransaction, Section, TransactionGroup } from "./home-styles";
 import { Logo } from '../../components/logo/index'
-import { Button } from "../../components/button";
 import { Title } from "../../components/title";
 import { Input } from "../../components/input";
 import { InputMask } from "@react-input/mask";
@@ -8,6 +7,7 @@ import { ButtonIcon } from "../../components/button-icon";
 import { Card } from "../../components/card";
 import { Transaction } from "../../components/transaction";
 import { CreateCategoryDialog } from "../../components/create-category-dialog";
+import { CreateTransactionDialog } from "../../components/create-transaction-dialog";
 
 export function Home() {
     return (
@@ -15,7 +15,7 @@ export function Home() {
             <Header>
                 <Logo />
                 <div>
-                    <Button>Nova transação</Button>
+                    <CreateTransactionDialog/>
                     <CreateCategoryDialog />
                 </div>
             </Header>
