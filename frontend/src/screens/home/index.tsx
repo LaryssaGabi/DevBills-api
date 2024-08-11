@@ -7,7 +7,7 @@ import { InputMask } from "@react-input/mask";
 import { ButtonIcon } from "../../components/button-icon";
 import { Card } from "../../components/card";
 import { Transaction } from "../../components/transaction";
-import { Dialog } from "../../components/dialog";
+import { CreateCategoryDialog } from "../../components/create-category-dialog";
 
 export function Home() {
     return (
@@ -15,8 +15,8 @@ export function Home() {
             <Header>
                 <Logo />
                 <div>
-                    <Dialog trigger={<Button>Nova transação</Button>}>Olá</Dialog>
-                    <Button>Nova categoria</Button>
+                    <Button>Nova transação</Button>
+                    <CreateCategoryDialog />
                 </div>
             </Header>
 
@@ -92,10 +92,10 @@ export function Home() {
                         </SearchTransaction>
                     </header>
 
-                        <TransactionGroup>
-                            <Transaction id={1} amount={20000} date="10/08/2024" category={{ title: 'Alimentação', color: '#ff33bb' }} title="Mercado" />
-                        </TransactionGroup>
-                        
+                    <TransactionGroup>
+                        <Transaction id={1} amount={20000} date="10/08/2024" category={{ title: 'Alimentação', color: '#ff33bb' }} title="Mercado" />
+                    </TransactionGroup>
+
                 </Aside>
 
             </Main>
