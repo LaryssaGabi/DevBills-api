@@ -1,4 +1,4 @@
-import { Aside, Balance, ChartAction, ChartContainer, ChartContent, Filters, Header, InputGroup, Main, SearchTransaction, Section } from "./home-styles";
+import { Aside, Balance, ChartAction, ChartContainer, ChartContent, Filters, Header, InputGroup, Main, SearchTransaction, Section, TransactionGroup } from "./home-styles";
 import { Logo } from '../../components/logo/index'
 import { Button } from "../../components/button";
 import { Title } from "../../components/title";
@@ -7,6 +7,7 @@ import { InputMask } from "@react-input/mask";
 import { ButtonIcon } from "../../components/button-icon";
 import { Card } from "../../components/card";
 import { Transaction } from "../../components/transaction";
+import { Dialog } from "../../components/dialog";
 
 export function Home() {
     return (
@@ -14,7 +15,7 @@ export function Home() {
             <Header>
                 <Logo />
                 <div>
-                    <Button>Nova transação</Button>
+                    <Dialog trigger={<Button>Nova transação</Button>}>Olá</Dialog>
                     <Button>Nova categoria</Button>
                 </div>
             </Header>
@@ -89,8 +90,12 @@ export function Home() {
                             />
                             <ButtonIcon />
                         </SearchTransaction>
-                        <Transaction id={1} amount={20000} date="10/08/2024" category={{ title: 'Alimentação', color: '#ff33bb' }} title="Mercado"/>
                     </header>
+
+                        <TransactionGroup>
+                            <Transaction id={1} amount={20000} date="10/08/2024" category={{ title: 'Alimentação', color: '#ff33bb' }} title="Mercado" />
+                        </TransactionGroup>
+                        
                 </Aside>
 
             </Main>
