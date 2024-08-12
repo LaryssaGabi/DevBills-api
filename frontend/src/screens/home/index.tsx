@@ -8,6 +8,7 @@ import { Card } from "../../components/card";
 import { Transaction } from "../../components/transaction";
 import { CreateCategoryDialog } from "../../components/create-category-dialog";
 import { CreateTransactionDialog } from "../../components/create-transaction-dialog";
+import { CatgeoriesPieChart } from "../../components/categories-pie-chart";
 
 export function Home() {
     return (
@@ -15,7 +16,7 @@ export function Home() {
             <Header>
                 <Logo />
                 <div>
-                    <CreateTransactionDialog/>
+                    <CreateTransactionDialog />
                     <CreateCategoryDialog />
                 </div>
             </Header>
@@ -55,7 +56,9 @@ export function Home() {
                         <header>
                             <Title title="Gastos" subtitle="Despesas por categoria no período" />
                         </header>
-                        <ChartContent></ChartContent>
+                        <ChartContent>
+                            <CatgeoriesPieChart />
+                        </ChartContent>
                     </ChartContainer>
 
                     <ChartContainer>
