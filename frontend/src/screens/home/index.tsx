@@ -9,6 +9,7 @@ import { Transaction } from "../../components/transaction";
 import { CreateCategoryDialog } from "../../components/create-category-dialog";
 import { CreateTransactionDialog } from "../../components/create-transaction-dialog";
 import { CatgeoriesPieChart } from "../../components/categories-pie-chart";
+import { FinancialEvolutionBarChart } from "../../components/financial-evolution-bar-chart";
 
 export function Home() {
     return (
@@ -78,7 +79,9 @@ export function Home() {
                             </ChartAction>
                         </header>
 
-                        <ChartContent></ChartContent>
+                        <ChartContent>
+                            <FinancialEvolutionBarChart />
+                        </ChartContent>
                     </ChartContainer>
 
                 </Section>
