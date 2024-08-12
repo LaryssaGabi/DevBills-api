@@ -17,3 +17,7 @@
    
 ## Criar transações
 * categorias, nome, valor, data, tipo
+
+## Para mudar na env no Docker e para rodar no terminal 
+* Docker mudar para mongodb
+* No terminal muda para localhost
