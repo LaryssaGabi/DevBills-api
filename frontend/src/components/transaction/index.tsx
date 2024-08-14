@@ -1,20 +1,26 @@
-import { formatCurrency } from "../../utils/format-currency";
-import { Container, Info, Content } from "./transactions-styles";
+import { formatCurrency } from '../../utils/format-currency';
+import { Container, Info, Content } from './transactions-styles';
 
-type TransactionsProps = {
+type TransactionProps = {
     id: number;
     title: string;
     date: string;
     amount: number;
     category: {
         title: string;
-        color: string
-    }
+        color: string;
+    };
     variant?: 'income' | 'expense';
+};
 
-}
-
-export function Transaction({ id, title, date, amount, category, variant = 'income' }: TransactionsProps) {
+export function Transaction({
+    id,
+    title,
+    date,
+    amount,
+    category,
+    variant = 'income',
+}: TransactionProps) {
     return (
         <Container>
             <Info>
@@ -30,5 +36,5 @@ export function Transaction({ id, title, date, amount, category, variant = 'inco
                 <span>{category.title.toUpperCase()}</span>
             </Content>
         </Container>
-    )
+    );
 }
