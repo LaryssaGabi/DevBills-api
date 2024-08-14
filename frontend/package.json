@@ -21,7 +21,8 @@
     "frontend": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "styled-components": "^6.1.12"
+    "styled-components": "^6.1.12",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
