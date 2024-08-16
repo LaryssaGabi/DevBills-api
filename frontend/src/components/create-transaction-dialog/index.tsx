@@ -24,12 +24,7 @@ import {
 export function CreateTransactionDialog() {
   const { categories, fetchCategories, createTransaction } = useFetchAPI();
   const [open, setOpen] = useState(false);
-  const {
-    register,
-    reset,
-    formState: { errors },
-    handleSubmit,
-  } = useForm<CreateTransactionData>({
+  const { register, reset, formState: { errors }, handleSubmit, } = useForm<CreateTransactionData>({
     defaultValues: {
       categoryId: 'null',
       title: '',
@@ -143,7 +138,7 @@ export function CreateTransactionDialog() {
 
           <footer>
             <Button onClick={handleClose} variant="outline" type="button">
-              Calcelar
+              Cancelar
             </Button>
             <Button type="submit">Cadastrar</Button>
           </footer>
