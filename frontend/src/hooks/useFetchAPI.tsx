@@ -3,8 +3,9 @@ import { ReactNode, createContext, useCallback, useContext, useState, } from 're
 
 import { APIService } from '../services/api';
 import { Category, Dashboard, FinancialEvolution, Transaction, } from '../services/api-types';
-import { formatDate } from '../utils/format-date';
+
 import { CreateCategoryData, CreateTransactionData, FinancialEvolutionFilterData, TransactionsFilterData, } from '../validators/types';
+import { formatDate } from '../utils/format-date';
 
 interface FetchAPIProps {
     dashboard: Dashboard;

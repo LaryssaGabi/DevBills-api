@@ -11,15 +11,7 @@ import { Button } from '../button';
 import { Dialog } from '../dialog';
 import { Input } from '../input';
 import { Title } from '../title';
-import {
-  Container,
-  Content,
-  CurrencyInput,
-  ErrorMessage,
-  InputGroup,
-  RadioForm,
-  RadioGroup,
-} from './styles-transaction';
+import { Container, Content, CurrencyInput, ErrorMessage, InputGroup, RadioForm, RadioGroup, } from './styles-transaction';
 
 export function CreateTransactionDialog() {
   const { categories, fetchCategories, createTransaction } = useFetchAPI();
@@ -70,23 +62,24 @@ export function CreateTransactionDialog() {
               <label>Categoria</label>
               <select {...register('categoryId')}>
                 <option value="null">Selecione uma categoria...</option>
-                {categories?.length &&
-                  categories.map((item) => (
-                    <option key={item._id} value={item._id}>
-                      {item.title}
-                    </option>
-                  ))}
+                {categories?.length && categories.map((item) => (
+                  <option key={item._id} value={item._id}>
+                    {item.title}
+                  </option>
+                ))}
               </select>
               {errors.categoryId && (
                 <ErrorMessage>{errors.categoryId.message}</ErrorMessage>
               )}
             </InputGroup>
+
             <Input
               label="Nome"
               placeholder="Nome da transação..."
               {...register('title')}
               error={errors.title?.message}
             />
+
             <InputGroup>
               <label>Valor</label>
               <CurrencyInput
@@ -121,6 +114,7 @@ export function CreateTransactionDialog() {
                 />
                 <label htmlFor="income">Receita</label>
               </RadioGroup>
+
               <RadioGroup>
                 <input
                   type="radio"
@@ -134,6 +128,7 @@ export function CreateTransactionDialog() {
                 <ErrorMessage>{errors.type.message}</ErrorMessage>
               )}
             </RadioForm>
+
           </Content>
 
           <footer>
@@ -142,8 +137,10 @@ export function CreateTransactionDialog() {
             </Button>
             <Button type="submit">Cadastrar</Button>
           </footer>
+
         </form>
       </Container>
+      
     </Dialog>
   );
 }
