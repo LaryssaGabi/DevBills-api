@@ -8,7 +8,7 @@ export class APIService {
   });
 
 
-  static async getDashboard({ beginDate, endDate, }: DashboardFilters): Promise<Dashboard> {
+  static async getDashboard({ beginDate, endDate }: DashboardFilters): Promise<Dashboard> {
     const { data } = await APIService.client.get<Dashboard>('/transactions/dashboard',
       {
         params: {

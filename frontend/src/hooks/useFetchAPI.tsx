@@ -14,7 +14,7 @@ interface FetchAPIProps {
     createTransaction: (data: CreateTransactionData) => Promise<void>;
     fetchCategories: () => Promise<void>;
     fetchTransactions: (filters: TransactionsFilterData) => Promise<void>;
-    fetchDashboard: (filters: Pick<TransactionsFilterData, 'beginDate' | 'endDate'>,) => Promise<void>;
+    fetchDashboard: (filters: Pick<TransactionsFilterData, 'beginDate' | 'endDate'>) => Promise<void>;
     fetchFinancialEvolution: (filters: FinancialEvolutionFilterData,) => Promise<void>;
     categories: Category[];
     transactions: Transaction[];
@@ -62,7 +62,7 @@ export function FetchAPIProvider({ children }: FetchAPIProviderProps) {
         [],
     );
 
-    const fetchDashboard = useCallback(async ({ beginDate, endDate, }: Pick<TransactionsFilterData, 'beginDate' | 'endDate'>) => {
+    const fetchDashboard = useCallback(async ({ beginDate, endDate}: Pick<TransactionsFilterData, 'beginDate' | 'endDate'>) => {
         const dashboard = await APIService.getDashboard({
             beginDate: formatDate(beginDate),
             endDate: formatDate(endDate),
