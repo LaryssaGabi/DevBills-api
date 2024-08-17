@@ -55,9 +55,7 @@ export function Home() {
         transactionsFilterForm.setValue('categoryId', id);
 
         await fetchTransactions(transactionsFilterForm.getValues());
-    },
-        [transactionsFilterForm, fetchTransactions],
-    );
+    }, [transactionsFilterForm, fetchTransactions]);
 
     const handleDeselectCategory = useCallback(async () => {
         setSelectedCategory(null);
@@ -68,24 +66,18 @@ export function Home() {
 
     const onSubmitTransactions = useCallback(async (data: TransactionsFilterData) => {
         await fetchTransactions(data);
-    },
-        [fetchTransactions],
-    );
+    }, [fetchTransactions]);
 
     const onSubmitDashboard = useCallback(async (data: TransactionsFilterData) => {
         const { beginDate, endDate } = data;
 
         await fetchDashboard({ beginDate, endDate });
         await fetchTransactions(data);
-    },
-        [fetchDashboard, fetchTransactions],
-    );
+    }, [fetchDashboard, fetchTransactions],);
 
     const onSubmitFinancialEvolution = useCallback(async (data: FinancialEvolutionFilterData) => {
         await fetchFinancialEvolution(data);
-    },
-        [fetchFinancialEvolution],
-    );
+    }, [fetchFinancialEvolution]);
 
     return (
         <>

@@ -21,7 +21,7 @@ transactionsRoutes.post('/',
 transactionsRoutes.get('/',
     validator({
         schema: indexTransactionsSchema,
-        type: ParamsType.   QUERY,
+        type: ParamsType.QUERY,
     }),
     controller.index
 )
