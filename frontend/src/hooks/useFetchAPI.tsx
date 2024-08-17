@@ -14,12 +14,8 @@ interface FetchAPIProps {
     createTransaction: (data: CreateTransactionData) => Promise<void>;
     fetchCategories: () => Promise<void>;
     fetchTransactions: (filters: TransactionsFilterData) => Promise<void>;
-    fetchDashboard: (
-        filters: Pick<TransactionsFilterData, 'beginDate' | 'endDate'>,
-    ) => Promise<void>;
-    fetchFinancialEvolution: (
-        filters: FinancialEvolutionFilterData,
-    ) => Promise<void>;
+    fetchDashboard: (filters: Pick<TransactionsFilterData, 'beginDate' | 'endDate'>,) => Promise<void>;
+    fetchFinancialEvolution: (filters: FinancialEvolutionFilterData,) => Promise<void>;
     categories: Category[];
     transactions: Transaction[];
 }
@@ -34,9 +30,7 @@ export function FetchAPIProvider({ children }: FetchAPIProviderProps) {
     const [categories, setCategories] = useState<Category[]>([]);
     const [transactions, setTransactions] = useState<Transaction[]>([]);
     const [dashboard, setDashboard] = useState<Dashboard>({} as Dashboard);
-    const [financialEvolution, setFinancialEvolution] = useState<
-        FinancialEvolution[]
-    >([]);
+    const [financialEvolution, setFinancialEvolution] = useState<FinancialEvolution[]>([]);
 
     const createTransaction = useCallback(async (data: CreateTransactionData) => {
         await APIService.createTransaction({
@@ -56,42 +50,36 @@ export function FetchAPIProvider({ children }: FetchAPIProviderProps) {
         setCategories(data);
     }, []);
 
-    const fetchTransactions = useCallback(
-        async (filters: TransactionsFilterData) => {
-            const transactions = await APIService.getTransactions({
-                ...filters,
-                beginDate: formatDate(filters.beginDate),
-                endDate: formatDate(filters.endDate),
-            });
+    const fetchTransactions = useCallback(async (filters: TransactionsFilterData) => {
+        const transactions = await APIService.getTransactions({
+            ...filters,
+            beginDate: formatDate(filters.beginDate),
+            endDate: formatDate(filters.endDate),
+        });
 
-            setTransactions(transactions);
-        },
+        setTransactions(transactions);
+    },
         [],
     );
 
-    const fetchDashboard = useCallback(
-        async ({
-            beginDate,
-            endDate,
-        }: Pick<TransactionsFilterData, 'beginDate' | 'endDate'>) => {
-            const dashboard = await APIService.getDashboard({
-                beginDate: formatDate(beginDate),
-                endDate: formatDate(endDate),
-            });
+    const fetchDashboard = useCallback(async ({ beginDate, endDate, }: Pick<TransactionsFilterData, 'beginDate' | 'endDate'>) => {
+        const dashboard = await APIService.getDashboard({
+            beginDate: formatDate(beginDate),
+            endDate: formatDate(endDate),
+        });
 
-            setDashboard(dashboard);
-        },
+        setDashboard(dashboard);
+    },
         [],
     );
 
-    const fetchFinancialEvolution = useCallback(
-        async ({ year }: FinancialEvolutionFilterData) => {
-            const financialEvolution = await APIService.getFinancialEvolution({
-                year: year.padStart(4, '0'),
-            });
+    const fetchFinancialEvolution = useCallback(async ({ year }: FinancialEvolutionFilterData) => {
+        const financialEvolution = await APIService.getFinancialEvolution({
+            year: year.padStart(4, '0'),
+        });
 
-            setFinancialEvolution(financialEvolution);
-        },
+        setFinancialEvolution(financialEvolution);
+    },
         [],
     );
 

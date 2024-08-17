@@ -37,14 +37,7 @@ export function Home() {
         },
     });
 
-    const {
-        transactions,
-        dashboard,
-        financialEvolution,
-        fetchFinancialEvolution,
-        fetchTransactions,
-        fetchDashboard,
-    } = useFetchAPI();
+    const { transactions, dashboard, financialEvolution, fetchFinancialEvolution, fetchTransactions, fetchDashboard } = useFetchAPI();
 
     useEffect(() => {
         const { beginDate, endDate } = transactionsFilterForm.getValues();
@@ -63,13 +56,12 @@ export function Home() {
     const [selectedCategory, setSelectedCategory] =
         useState<CategoryProps | null>(null);
 
-    const handleSelectCategory = useCallback(
-        async ({ id, title, color }: CategoryProps) => {
-            setSelectedCategory({ id, title, color });
-            transactionsFilterForm.setValue('categoryId', id);
+    const handleSelectCategory = useCallback(async ({ id, title, color }: CategoryProps) => {
+        setSelectedCategory({ id, title, color });
+        transactionsFilterForm.setValue('categoryId', id);
 
-            await fetchTransactions(transactionsFilterForm.getValues());
-        },
+        await fetchTransactions(transactionsFilterForm.getValues());
+    },
         [transactionsFilterForm, fetchTransactions],
     );
 
@@ -80,27 +72,24 @@ export function Home() {
         await fetchTransactions(transactionsFilterForm.getValues());
     }, [transactionsFilterForm, fetchTransactions]);
 
-    const onSubmitTransactions = useCallback(
-        async (data: TransactionsFilterData) => {
-            await fetchTransactions(data);
-        },
+    const onSubmitTransactions = useCallback(async (data: TransactionsFilterData) => {
+        await fetchTransactions(data);
+    },
         [fetchTransactions],
     );
 
-    const onSubmitDashboard = useCallback(
-        async (data: TransactionsFilterData) => {
-            const { beginDate, endDate } = data;
+    const onSubmitDashboard = useCallback(async (data: TransactionsFilterData) => {
+        const { beginDate, endDate } = data;
 
-            await fetchDashboard({ beginDate, endDate });
-            await fetchTransactions(data);
-        },
+        await fetchDashboard({ beginDate, endDate });
+        await fetchTransactions(data);
+    },
         [fetchDashboard, fetchTransactions],
     );
 
-    const onSubmitFinancialEvolution = useCallback(
-        async (data: FinancialEvolutionFilterData) => {
-            await fetchFinancialEvolution(data);
-        },
+    const onSubmitFinancialEvolution = useCallback(async (data: FinancialEvolutionFilterData) => {
+        await fetchFinancialEvolution(data);
+    },
         [fetchFinancialEvolution],
     );
 
@@ -198,11 +187,7 @@ export function Home() {
                                     placeholder="aaaa"
                                     {...financialEvolutionFilterForm.register('year')}
                                 />
-                                <ButtonIcon
-                                    onClick={financialEvolutionFilterForm.handleSubmit(
-                                        onSubmitFinancialEvolution,
-                                    )}
-                                />
+                                <ButtonIcon onClick={financialEvolutionFilterForm.handleSubmit(onSubmitFinancialEvolution)} />
                             </ChartAction>
                         </header>
                         <ChartContent>
@@ -221,11 +206,7 @@ export function Home() {
                                 placeholder="Procurar transação..."
                                 {...transactionsFilterForm.register('title')}
                             />
-                            <ButtonIcon
-                                onClick={transactionsFilterForm.handleSubmit(
-                                    onSubmitTransactions,
-                                )}
-                            />
+                            <ButtonIcon onClick={transactionsFilterForm.handleSubmit(onSubmitTransactions)} />
                         </SearchTransaction>
                     </header>
                     <TransactionGroup>

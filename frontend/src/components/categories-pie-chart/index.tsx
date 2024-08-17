@@ -24,11 +24,9 @@ type CategoriesPieChartProps = {
   expenses?: Expense[];
 };
 
-export function CategoriesPieChart({
-  onClick,
-  expenses,
-}: CategoriesPieChartProps) {
-  const data = useMemo<ChartData[]>(() => {
+export function CategoriesPieChart({ onClick, expenses, }: CategoriesPieChartProps) {
+    const data = useMemo<ChartData[]>(() => {
+      
     if (expenses?.length) {
       const chartData: ChartData[] = expenses.map((item) => ({
         id: item.title,
