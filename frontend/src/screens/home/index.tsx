@@ -45,7 +45,7 @@ export function Home() {
         fetchDashboard({ beginDate, endDate });
         fetchTransactions(transactionsFilterForm.getValues());
         fetchFinancialEvolution(financialEvolutionFilterForm.getValues());
-    }, [fetchTransactions, transactionsFilterForm, fetchDashboard, fetchFinancialEvolution, financialEvolutionFilterForm,]);
+    }, [fetchTransactions, transactionsFilterForm, fetchDashboard, fetchFinancialEvolution, financialEvolutionFilterForm]);
 
     const [selectedCategory, setSelectedCategory] =
         useState<CategoryProps | null>(null);

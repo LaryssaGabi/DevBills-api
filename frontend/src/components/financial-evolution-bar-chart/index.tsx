@@ -20,9 +20,7 @@ type FinancialEvolutionBarChartProps = {
   financialEvolution?: FinancialEvolution[];
 };
 
-export function FinancialEvolutionBarChart({
-  financialEvolution,
-}: FinancialEvolutionBarChartProps) {
+export function FinancialEvolutionBarChart({ financialEvolution }: FinancialEvolutionBarChartProps) {
   const data = useMemo<ChartData[]>(() => {
     if (financialEvolution?.length) {
       const chartData: ChartData[] = financialEvolution.map((item) => {

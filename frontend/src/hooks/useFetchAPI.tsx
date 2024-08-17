@@ -15,7 +15,7 @@ interface FetchAPIProps {
     fetchCategories: () => Promise<void>;
     fetchTransactions: (filters: TransactionsFilterData) => Promise<void>;
     fetchDashboard: (filters: Pick<TransactionsFilterData, 'beginDate' | 'endDate'>) => Promise<void>;
-    fetchFinancialEvolution: (filters: FinancialEvolutionFilterData,) => Promise<void>;
+    fetchFinancialEvolution: (filters: FinancialEvolutionFilterData) => Promise<void>;
     categories: Category[];
     transactions: Transaction[];
 }
