@@ -58,20 +58,16 @@ export function FetchAPIProvider({ children }: FetchAPIProviderProps) {
         });
 
         setTransactions(transactions);
-    },
-        [],
-    );
+    }, []);
 
-    const fetchDashboard = useCallback(async ({ beginDate, endDate}: Pick<TransactionsFilterData, 'beginDate' | 'endDate'>) => {
+    const fetchDashboard = useCallback(async ({ beginDate, endDate }: Pick<TransactionsFilterData, 'beginDate' | 'endDate'>) => {
         const dashboard = await APIService.getDashboard({
             beginDate: formatDate(beginDate),
             endDate: formatDate(endDate),
         });
 
         setDashboard(dashboard);
-    },
-        [],
-    );
+    }, []);
 
     const fetchFinancialEvolution = useCallback(async ({ year }: FinancialEvolutionFilterData) => {
         const financialEvolution = await APIService.getFinancialEvolution({
@@ -79,9 +75,7 @@ export function FetchAPIProvider({ children }: FetchAPIProviderProps) {
         });
 
         setFinancialEvolution(financialEvolution);
-    },
-        [],
-    );
+    }, []);
 
     return (
         <FetchAPIContext.Provider
