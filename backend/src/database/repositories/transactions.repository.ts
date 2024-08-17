@@ -1,4 +1,4 @@
-import { CreateTransactionDTO, GetDashboardDTO, GetFinancialEvolutionDTO, indexTransactionsDTO } from "../../dtos/transactions.dto"
+import { CreateTransactionDTO, GetDashboardDTO, GetFinancialEvolutionDTO, IndexTransactionsDTO } from "../../dtos/transactions.dto"
 import { Balance } from "../../entities/balance.entity"
 import { Expense } from "../../entities/expense.entity"
 import { Transaction, TransactionType } from "../../entities/transactions.entity"
@@ -15,7 +15,7 @@ export class TransactionsRepository {
     }
 
 
-    async index({ beginDate, categoryId, endDate, title }: indexTransactionsDTO): Promise<Transaction[]> {
+    async index({ beginDate, categoryId, endDate, title }: IndexTransactionsDTO): Promise<Transaction[]> {
 
         const whereParams: Record<string, unknown> = {
             ...(title && { title: { $regex: title, $options: 'i' } }),

@@ -60,7 +60,7 @@ export class APIService {
   }
 
 
-  static async getFinancialEvolution({ year}: FinancialEvolutionFilters): Promise<FinancialEvolution[]> {
+  static async getFinancialEvolution({ year }: FinancialEvolutionFilters): Promise<FinancialEvolution[]> {
     const { data } = await APIService.client.get<FinancialEvolution[]>('/transactions/financial-evolution',
       {
         params: {

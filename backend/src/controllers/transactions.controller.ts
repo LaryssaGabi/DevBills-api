@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { TransactionsService } from "../services/transactions.servic";
-import { CreateTransactionDTO, GetDashboardDTO, GetFinancialEvolutionDTO, indexTransactionsDTO } from "../dtos/transactions.dto";
+import { CreateTransactionDTO, GetDashboardDTO, GetFinancialEvolutionDTO, IndexTransactionsDTO } from "../dtos/transactions.dto";
 import { BodyRequest, QueryRequest } from "./types";
 
 
@@ -21,7 +21,7 @@ export class TransactionsController {
     }
 
 
-    index = async (req: QueryRequest<indexTransactionsDTO>, res: Response, next: NextFunction) => {
+    index = async (req: QueryRequest<IndexTransactionsDTO>, res: Response, next: NextFunction) => {
         try {
             const { title, endDate, beginDate, categoryId } = req.query;
             const result = await this.transactionsService.index({ title, endDate, beginDate, categoryId })

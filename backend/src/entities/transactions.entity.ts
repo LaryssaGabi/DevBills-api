@@ -22,7 +22,7 @@ export class Transaction {
     public category: Category;
     public type: TransactionType
 
-    constructor({ _id,title, type, date, amount, category }: TransactionProps) {
+    constructor({ _id, title, type, date, amount, category }: TransactionProps) {
         this._id = _id;
         this.title = title;
         this.type = type;

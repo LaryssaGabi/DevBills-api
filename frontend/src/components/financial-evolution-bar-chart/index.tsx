@@ -40,6 +40,7 @@ export function FinancialEvolutionBarChart({ financialEvolution }: FinancialEvol
     return [];
   }, [financialEvolution]);
 
+  
   return (
     <ResponsiveBar
       data={data}

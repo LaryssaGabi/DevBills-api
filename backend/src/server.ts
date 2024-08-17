@@ -12,6 +12,7 @@ setupMongo().then(() => {
 
   app.use(cors({
     origin: process.env.FRONT_URL,
+    credentials: true
   }))
   app.use(json());
   app.use(routes);

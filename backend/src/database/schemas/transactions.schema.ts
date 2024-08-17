@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { title } from "process";
 import { CategorySchema } from "./category.schema";
 
 const TransactionSchema = new mongoose.Schema({
