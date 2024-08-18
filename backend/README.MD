@@ -19,5 +19,5 @@
 * categorias, nome, valor, data, tipo
 
 ## Para mudar na env no Docker e para rodar no terminal 
-* Docker mudar para mongodb
-* No terminal muda para localhost
+* Docker mudar para mongodb ( docker logs devbills-api --follow)
+* No terminal muda para localhost (npm start dev)

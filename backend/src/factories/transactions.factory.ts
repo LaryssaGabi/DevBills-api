@@ -8,13 +8,16 @@ export class TransactionsFactory {
     private static transactionsService: TransactionsService;
 
     static getServiceInstance() {
-        if (!this.transactionsService) {
-            const repository = new TransactionsRepository(TrasactionsModel);
-            const categoriesRepository = new CategoriesRepository(CategoryModel)
-            const service = new TransactionsService(repository, categoriesRepository);
-            
-            this.transactionsService = service;
+        if (this.transactionsService) {
+            return this.transactionsService;
         }
-        return this.transactionsService;
+
+        const repository = new TransactionsRepository(TrasactionsModel);
+        const categoriesRepository = new CategoriesRepository(CategoryModel)
+        const service = new TransactionsService(repository, categoriesRepository);
+
+        this.transactionsService = service;
+        
+        return service
     }
 }
