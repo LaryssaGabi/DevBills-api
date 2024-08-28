@@ -33,7 +33,8 @@ export class TransactionsRepository {
             sort: {
                 date: -1
             }
-        });
+        });  
+        
         const transactionsMap = transactions.map((item) => item.toObject<Transaction>())
 
         return transactionsMap
@@ -120,6 +121,7 @@ export class TransactionsRepository {
         })
 
         return result
+
     }
 
 

@@ -21,3 +21,4 @@
 ## Para mudar na env no Docker e para rodar no terminal 
 * Docker mudar para mongodb ( docker logs devbills-api --follow)
 * No terminal muda para localhost (npm start dev)
+* npm start dev

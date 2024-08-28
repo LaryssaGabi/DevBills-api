@@ -29,8 +29,8 @@ export function FinancialEvolutionBarChart({ financialEvolution }: FinancialEvol
         return {
           month: dayjs(`${year}-${month}-01`).format('MMM'),
           Saldo: item.balance,
-          Receitas: item.incomes,
-          Gastos: item.expenses,
+          Receitas: item.income,
+          Gastos: item.expense,
         };
       });
 

@@ -37,6 +37,7 @@ const cors_1 = __importDefault(require("cors"));
     const port = 3333;
     app.use((0, cors_1.default)({
         origin: process.env.FRONT_URL,
+        credentials: true
     }));
     app.use((0, express_1.json)());
     app.use(routes_1.routes);

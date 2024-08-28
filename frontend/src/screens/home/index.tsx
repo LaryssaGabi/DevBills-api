@@ -124,12 +124,12 @@ export function Home() {
                         <Card title="Saldo" amount={dashboard?.balance?.balance || 0} />
                         <Card
                             title="Receitas"
-                            amount={dashboard?.balance?.incomes || 0}
+                            amount={dashboard?.balance?.income || 0}
                             variant="incomes"
                         />
                         <Card
                             title="Gastos"
-                            amount={dashboard?.balance?.expenses * -1 || 0}
+                            amount={dashboard?.balance?.expense * -1 || 0}
                             variant="expenses"
                         />
                     </Balance>

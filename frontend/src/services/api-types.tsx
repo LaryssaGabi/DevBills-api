@@ -35,8 +35,8 @@ export type Transaction = {
 
 export type Balance = {
   _id: string | null;
-  incomes: number;
-  expenses: number;
+  income: number;
+  expense: number;
   balance: number;
 };
 
@@ -63,7 +63,7 @@ export type FinancialEvolutionFilters = {
 
 export type FinancialEvolution = {
   _id: [number, number];
-  incomes: number;
-  expenses: number;
+  income: number;
+  expense: number;
   balance: number;
 };
