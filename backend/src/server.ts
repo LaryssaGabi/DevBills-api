@@ -20,6 +20,8 @@ setupMongo().then(() => {
 
   app.listen(port, () => {
     console.log(`🚀 App is running at port ${port}!`);
+    console.log('FRONT_URL:', process.env.FRONT_URL);
+
   });
 
 })
