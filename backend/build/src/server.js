@@ -44,5 +44,6 @@ const cors_1 = __importDefault(require("cors"));
     app.use(error_handler_middleware_1.errorHandle);
     app.listen(port, () => {
         console.log(`🚀 App is running at port ${port}!`);
+        console.log('FRONT_URL:', process.env.FRONT_URL);
     });
 });
