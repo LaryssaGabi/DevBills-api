@@ -1,12 +1,21 @@
 import { NextFunction, Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import { TransactionsService } from "../services/transactions.servic";
-import { CreateTransactionDTO, GetDashboardDTO, GetFinancialEvolutionDTO, IndexTransactionsDTO } from "../dtos/transactions.dto";
+import { CreateTransactionDTO, GetDashboardDTO, GetFinancialEvolutionDTO, IndexTransactionsDTO, UpdateTransactionDTO } from "../dtos/transactions.dto";
 import { BodyRequest, QueryRequest } from "./types";
+
+interface ParamsId {
+    id: string; 
+}
 
 
 export class TransactionsController {
-    constructor(private transactionsService: TransactionsService) { }
+    private transactionsService: TransactionsService;
+
+    constructor(transactionsService: TransactionsService) {
+        this.transactionsService = transactionsService;
+    }
+
 
     create = async (req: BodyRequest<CreateTransactionDTO>, res: Response, next: NextFunction) => {
         try {
@@ -56,7 +65,6 @@ export class TransactionsController {
         }
     }
 
-
     delete = async (req: Request, res: Response, next: NextFunction) => {
         try {
             const { id } = req.params; 
@@ -71,4 +79,24 @@ export class TransactionsController {
             next(err);
         }
     };
+   
+    update = async (req: BodyRequest<UpdateTransactionDTO, ParamsId>, res: Response, next: NextFunction) => {
+        try {
+            const { id } = req.params;
+            const { title, amount, categoryId, type, date } = req.body;
+    
+            const result = await this.transactionsService.update(id, { title, amount, categoryId, type, date });
+    
+            if (!result) {
+                return res.status(StatusCodes.NOT_FOUND).json({ message: "Transação não encontrada" });
+            }
+    
+            return res.status(StatusCodes.OK).json(result);
+        } catch (err) {
+            next(err);
+        }
+    };
+    
+    
+    
 }
